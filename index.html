@@ -35,7 +35,20 @@
 <a name="czech_csv_logger_pro_fix" class="anchor" href="#czech_csv_logger_pro_fix"><span class="octicon octicon-link"></span></a>czech_csv_logger_pro_fix</h1>
 
 <p>PHP script that will fix CSV files exported from czech translated version of Logger Pro (Lite) software</p>
-        </section>
+        
+	<script>
+	function fix(object){
+		var array = object.innerHtml().split("\n");
+		array.forEach(function(entry) {
+		    console.log(entry);
+		});
+	}
+	</script>
+	
+	<textarea id="input" onchange="fix(this)"></textarea>
+	<textarea id="output"></textarea>
+	
+	</section>
 
         <footer>
           Logger Pro - Czech csv fix is maintained by <a href="https://github.com/jacktech24">jacktech24</a><br>
