@@ -37,11 +37,28 @@
 <p>PHP script that will fix CSV files exported from czech translated version of Logger Pro (Lite) software</p>
         
 	<script>
+	var output = "";
 	function fix(object){
+		output = "";
 		var array = object.value.split("\n");
 		array.forEach(function(entry) {
-		    console.log(entry);
+		    if(entry.indexOf("\\")){
+			output += "\n";
+		    }else{
+			var data = entry.split(",");
+			var delim = false;
+			for(i = 0;i<data.length;i++){
+				output += data[i];
+				if(delim){
+					output += ",";
+				else
+					output += ".";
+				delim = !delim;
+			}
+			output.substring(0, output.length-1);
+		    }
 		});
+		document.getElementById("output").value = output;
 	}
 	</script>
 	
