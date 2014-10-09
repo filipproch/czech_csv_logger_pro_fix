@@ -42,7 +42,7 @@
 		output = "";
 		var array = object.value.split("\n");
 		array.forEach(function(entry) {
-		    if(entry.indexOf("\\")){
+		    if(entry.indexOf("\\") == -1){
 			output += "\n";
 		    }else{
 			var data = entry.split(",");
@@ -51,8 +51,9 @@
 				output += data[i];
 				if(delim){
 					output += ",";
-				else
+				}else{
 					output += ".";
+				}
 				delim = !delim;
 			}
 			output.substring(0, output.length-1);
